@@ -1,0 +1,38 @@
+{
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "name": "brain-games-dmitr",
+  "version": "1.0.0",
+  "description": "first project on Hexlet",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex1998dmit/project-lvl1-s352.git"
+  },
+  "keywords": [
+    "hexlet",
+    "first",
+    "project"
+  ],
+  "author": "Alexander Dmitriev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex1998dmit/project-lvl1-s352/issues"
+  },
+  "homepage": "https://github.com/alex1998dmit/project-lvl1-s352#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
