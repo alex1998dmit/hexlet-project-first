@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import { sayHiToUser, checParity, showRulesOfEvenGame } from '../..';
+import { checParity } from '../..';
 
-showRulesOfEvenGame();
-const userName = sayHiToUser();
-console.log(checParity(userName));
+checParity();

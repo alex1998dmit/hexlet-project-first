@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 
+const triesToWin = 3;
+
 export const sayHiToUser = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -31,18 +33,30 @@ const generateNum = () => {
 
 const isEven = num => num % 2 === 0;
 
-export const checParity = (userName, numWin = 0) => {
-  if (numWin === 3) {
-    return `Congratulations, ${userName}!`;
-  }
-  const questionNumber = generateNum();
-  const rightAnswer = (isEven(questionNumber)) ? 'yes' : 'no';
-  console.log(`Question: ${questionNumber}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  if (rightAnswer === userAnswer) {
-    console.log('Correct!');
-    return checParity(userName, numWin + 1);
-  }
-  const looseStr = `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
-  return looseStr;
+export const checParity = () => {
+  showRulesOfEvenGame();
+  const userName = readlineSync.question('May I have your name? ');
+  console.log();
+  const iter = (numWin = 0) => {
+    if (numWin === triesToWin) {
+      console.log(`Congratulations, ${userName}!`);
+      return true;
+    }
+    const question = generateNum();
+    const rightAnswer = (isEven(question)) ? 'yes' : 'no';
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (rightAnswer === userAnswer) {
+      console.log('Correct!');
+      return iter(numWin + 1);
+    }
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
+    return false;
+  };
+  iter();
+};
+
+export const startBrainGame = () => {
+  showWelcomeSign();
+  sayHiToUser();
 };
