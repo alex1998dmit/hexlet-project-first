@@ -4,4 +4,8 @@
 
 [![Build Status](https://travis-ci.org/alex1998dmit/project-lvl1-s352.svg?branch=master)](https://travis-ci.org/alex1998dmit/project-lvl1-s352)
 
+## How to play brain-even
 [![asciicast](https://asciinema.org/a/uLVnKgAhKAosBTBD7GkfMzBZc.png)](https://asciinema.org/a/uLVnKgAhKAosBTBD7GkfMzBZc)
+
+## Рow to play brain-calc
+[![asciicast](https://asciinema.org/a/3JKCkAMbnQ5qHjxE6NiWXx4ax.png)](https://asciinema.org/a/3JKCkAMbnQ5qHjxE6NiWXx4ax)
