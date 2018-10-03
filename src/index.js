@@ -10,7 +10,7 @@ export const sayHiToUser = () => {
 };
 
 export const showWelcomeSign = () => {
-  console.log('Welcome to the Brain Games!');
+  console.log('Welcome to the Brain Games! ');
 };
 
 export const showRulesOfEvenGame = () => {
@@ -87,8 +87,8 @@ export const checkCalc = () => {
     if (numWin === triesToWin) {
       return `Congratulations, ${userName}!`;
     }
-    const numOne = generateNum(1, 10);
-    const numTwo = generateNum(11, 20);
+    const numOne = generateNum(3, 10);
+    const numTwo = generateNum(1, 2);
     const rightAnswer = generateExpress(numOne, numTwo);
     const userAnswer = readlineSync.question('Your answer: ');
     if (Number(rightAnswer) === Number(userAnswer)) {
