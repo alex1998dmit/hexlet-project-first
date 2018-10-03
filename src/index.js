@@ -21,7 +21,7 @@ const generateNum = () => {
 
 const isEven = num => num % 2 === 0;
 
-const checParity = (userName, numWin = 1) => {
+const checParity = (userName, numWin = 0) => {
   if (numWin === 3) {
     return `Congratulations, ${userName}!`;
   }
