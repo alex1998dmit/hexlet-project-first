@@ -25,9 +25,7 @@ export const showRulesOfCalcGame = () => {
   console.log();
 };
 
-const generateNum = (min, max) => {
-  return Math.round(min + Math.random() * (max - min));
-};
+const generateNum = (min, max) => Math.round(min + Math.random() * (max - min));
 
 const isEven = num => num % 2 === 0;
 
@@ -82,7 +80,6 @@ export const startBrainGame = () => {
 };
 
 export const checkCalc = () => {
-  showWelcomeSign();
   showRulesOfCalcGame();
   const userName = readlineSync.question('May I have your name? ');
   console.log();
@@ -90,11 +87,11 @@ export const checkCalc = () => {
     if (numWin === triesToWin) {
       return `Congratulations, ${userName}!`;
     }
-    const numOne = generateNum(1,10);
+    const numOne = generateNum(1, 10);
     const numTwo = generateNum(11, 20);
     const rightAnswer = generateExpress(numOne, numTwo);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (rightAnswer == userAnswer) {
+    if (Number(rightAnswer) === Number(userAnswer)) {
       console.log('Correct!');
       return iter(numWin + 1);
     }
