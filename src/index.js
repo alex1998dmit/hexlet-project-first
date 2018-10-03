@@ -3,7 +3,14 @@ import readlineSync from 'readline-sync';
 const sayHiToUser = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
+  console.log();
   return userName;
+};
+
+const showRules = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('Answer "yes" if number even otherwise answer "no".');
+  console.log();
 };
 
 const generateNum = () => {
@@ -35,4 +42,4 @@ const checParity = (userName, numWin = 1) => {
   return looseStr;
 };
 
-export { sayHiToUser, checParity };
+export { sayHiToUser, checParity, showRules };
