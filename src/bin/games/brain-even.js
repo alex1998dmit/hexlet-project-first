@@ -2,4 +2,4 @@
 
 import { checParity } from '../..';
 
-checParity();
+console.log(checParity());

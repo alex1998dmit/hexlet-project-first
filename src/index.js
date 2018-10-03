@@ -21,7 +21,7 @@ export const showRulesOfEvenGame = () => {
 
 export const showRulesOfCalcGame = () => {
   showWelcomeSign();
-  console.log('Answer "yes" if number even otherwise answer "no".');
+  console.log('What is the result of the expression?');
   console.log();
 };
 
@@ -33,14 +33,37 @@ const generateNum = () => {
 
 const isEven = num => num % 2 === 0;
 
+const addNum = (numOne, numTwo) => numOne + numTwo;
+
+const difNum = (numOne, numTwo) => numOne - numTwo;
+
+const divNum = (numOne, numTwo) => numOne / numTwo;
+
+const generateExpress = (numOne, numTwo) => {
+  const min = 0;
+  const max = 2;
+  const numExpr = Math.round(min + Math.random() * (max - min));
+  let result;
+  if (numExpr === 0) {
+    console.log(`Question, ${numOne} + ${numTwo}`);
+    result = addNum(numOne, numTwo);
+  } else if (numExpr === 1) {
+    console.log(`Question, ${numOne} - ${numTwo}`);
+    result = difNum(numOne, numTwo);
+  } else {
+    console.log(`Question, ${numOne} / ${numTwo}`);
+    result = divNum(numOne, numTwo);
+  }
+  return result;
+};
+
 export const checParity = () => {
   showRulesOfEvenGame();
   const userName = readlineSync.question('May I have your name? ');
   console.log();
   const iter = (numWin = 0) => {
     if (numWin === triesToWin) {
-      console.log(`Congratulations, ${userName}!`);
-      return true;
+      return `Congratulations, ${userName}!`;
     }
     const question = generateNum();
     const rightAnswer = (isEven(question)) ? 'yes' : 'no';
@@ -50,13 +73,36 @@ export const checParity = () => {
       console.log('Correct!');
       return iter(numWin + 1);
     }
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
-    return false;
+    return `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
   };
-  iter();
+  return iter();
 };
 
 export const startBrainGame = () => {
   showWelcomeSign();
   sayHiToUser();
+};
+
+export const checkCalc = () => {
+  showWelcomeSign();
+  showRulesOfCalcGame();
+  const userName = readlineSync.question('May I have your name? ');
+  console.log();
+  const iter = (numWin = 0) => {
+    if (numWin === triesToWin) {
+      console.log(`Congratulations, ${userName}!`);
+      return true;
+    }
+    const numOne = generateNum();
+    const numTwo = generateNum();
+    const rightAnswer = generateExpress(numOne, numTwo);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (rightAnswer === userAnswer) {
+      console.log('Correct!');
+      return iter(numWin + 1);
+    }
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
+    return false;
+  };
+  iter();
 };
