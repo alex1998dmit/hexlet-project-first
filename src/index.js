@@ -19,29 +19,19 @@ const generateNum = () => {
   return Math.round(min + Math.random() * (max - min));
 };
 
-const questionGenerate = (num) => {
-  console.log(`Question: ${num}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  return userAnswer;
-};
-
-const isEven = (num) => {
-  return (num % 2 === 0);
-}
+const isEven = num => num % 2 === 0;
 
 const checParity = (userName, numWin = 1) => {
-  let numWinGames = numWin;
-  const questionNumber = generateNum();
-  const userAnswer = questionGenerate(numGenerate);
-  console.log();
-  const rightAnswer = (isEven(questionNumber)) ? 'yes' : 'no';
-  if (numWinGames === 3) {
+  if (numWin === 3) {
     return `Congratulations, ${userName}!`;
   }
+  const questionNumber = generateNum();
+  const rightAnswer = (isEven(questionNumber)) ? 'yes' : 'no';
+  console.log(`Question: ${questionNumber}`);
+  const userAnswer = readlineSync.question('Your answer: ');
   if (rightAnswer === userAnswer) {
     console.log('Correct!');
-    numWinGames += 1;
-    return checParity(userName, numWinGames);
+    return checParity(userName, numWin + 1);
   }
   const looseStr = `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
   return looseStr;
