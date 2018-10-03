@@ -2,27 +2,32 @@ import readlineSync from 'readline-sync';
 
 const triesToWin = 3;
 
-export const sayHiToUser = () => {
+const sayHiToUser = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log();
   return userName;
 };
 
-export const showWelcomeSign = () => {
+const showWelcomeSign = () => {
   console.log('Welcome to the Brain Games! ');
 };
 
-export const showRulesOfEvenGame = () => {
+const showRulesOfEvenGame = () => {
   showWelcomeSign();
   console.log('Answer "yes" if number even otherwise answer "no".');
   console.log();
 };
 
-export const showRulesOfCalcGame = () => {
+const showRulesOfCalcGame = () => {
   showWelcomeSign();
   console.log('What is the result of the expression?');
   console.log();
+};
+
+const showNodRules = () => {
+  showWelcomeSign();
+  console.log('Find the greatest common divisor of given numbers.');
 };
 
 const generateNum = (min, max) => Math.round(min + Math.random() * (max - min));
@@ -53,9 +58,20 @@ const generateExpress = (numOne, numTwo) => {
   return result;
 };
 
+const findNod = (numOne, numTwo) => {
+  const min = (numOne < numTwo) ? numOne : numTwo;
+  let nod;
+  for (let i = 1; i <= min; i += i) {
+    if (numOne % i === 0 && numTwo % i === 0) {
+      nod = i;
+    }
+  }
+  return nod;
+};
+
 export const checParity = () => {
   showRulesOfEvenGame();
-  const userName = readlineSync.question('May I have your name? ');
+  const userName = readlineSync.question('May I have your name?  ');
   console.log();
   const iter = (numWin = 0) => {
     if (numWin === triesToWin) {
@@ -90,6 +106,29 @@ export const checkCalc = () => {
     const numOne = generateNum(3, 10);
     const numTwo = generateNum(1, 2);
     const rightAnswer = generateExpress(numOne, numTwo);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (Number(rightAnswer) === Number(userAnswer)) {
+      console.log('Correct!');
+      return iter(numWin + 1);
+    }
+    return `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
+  };
+  return iter();
+};
+
+export const startNodGame = () => {
+  showNodRules();
+  console.log();
+  const userName = readlineSync.question('May I have your name? ');
+  console.log();
+  const iter = (numWin = 0) => {
+    if (numWin === triesToWin) {
+      return `Congratulations, ${userName}!`;
+    }
+    const numOne = generateNum(1, 20);
+    const numTwo = generateNum(1, 20);
+    const rightAnswer = findNod(numOne, numTwo);
+    console.log(`Question: ${numOne} ${numTwo}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (Number(rightAnswer) === Number(userAnswer)) {
       console.log('Correct!');

@@ -2,7 +2,8 @@
   "bin": {
     "brain-games": "dist/bin/games/brain-games.js",
     "brain-even": "dist/bin/games/brain-even.js",
-    "brain-calc": "dist/bin/games/brain-calc.js"
+    "brain-calc": "dist/bin/games/brain-calc.js", 
+    "brain-gcd": "dist/bin/games/brain-gcd.js"
   },
   "name": "brain-games-dmitr",
   "version": "1.4.2",
