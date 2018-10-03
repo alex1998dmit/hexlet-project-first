@@ -25,9 +25,7 @@ export const showRulesOfCalcGame = () => {
   console.log();
 };
 
-const generateNum = () => {
-  const min = 0;
-  const max = 20;
+const generateNum = (min, max) => {
   return Math.round(min + Math.random() * (max - min));
 };
 
@@ -65,7 +63,7 @@ export const checParity = () => {
     if (numWin === triesToWin) {
       return `Congratulations, ${userName}!`;
     }
-    const question = generateNum();
+    const question = generateNum(0, 20);
     const rightAnswer = (isEven(question)) ? 'yes' : 'no';
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
@@ -90,19 +88,17 @@ export const checkCalc = () => {
   console.log();
   const iter = (numWin = 0) => {
     if (numWin === triesToWin) {
-      console.log(`Congratulations, ${userName}!`);
-      return true;
+      return `Congratulations, ${userName}!`;
     }
-    const numOne = generateNum();
-    const numTwo = generateNum();
+    const numOne = generateNum(1,10);
+    const numTwo = generateNum(11, 20);
     const rightAnswer = generateExpress(numOne, numTwo);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (rightAnswer === userAnswer) {
+    if (rightAnswer == userAnswer) {
       console.log('Correct!');
       return iter(numWin + 1);
     }
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`);
-    return false;
+    return `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
   };
-  iter();
+  return iter();
 };

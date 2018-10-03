@@ -2,4 +2,4 @@
 
 import { checkCalc } from '../..';
 
-checkCalc();
+console.log(checkCalc());
