@@ -1,14 +1,24 @@
 import readlineSync from 'readline-sync';
 
-const sayHiToUser = () => {
+export const sayHiToUser = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log();
   return userName;
 };
 
-const showRules = () => {
+export const showWelcomeSign = () => {
   console.log('Welcome to the Brain Games!');
+};
+
+export const showRulesOfEvenGame = () => {
+  showWelcomeSign();
+  console.log('Answer "yes" if number even otherwise answer "no".');
+  console.log();
+};
+
+export const showRulesOfCalcGame = () => {
+  showWelcomeSign();
   console.log('Answer "yes" if number even otherwise answer "no".');
   console.log();
 };
@@ -21,7 +31,7 @@ const generateNum = () => {
 
 const isEven = num => num % 2 === 0;
 
-const checParity = (userName, numWin = 0) => {
+export const checParity = (userName, numWin = 0) => {
   if (numWin === 3) {
     return `Congratulations, ${userName}!`;
   }
@@ -36,5 +46,3 @@ const checParity = (userName, numWin = 0) => {
   const looseStr = `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
   return looseStr;
 };
-
-export { sayHiToUser, checParity, showRules };
