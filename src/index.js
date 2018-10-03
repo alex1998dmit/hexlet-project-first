@@ -25,11 +25,16 @@ const questionGenerate = (num) => {
   return userAnswer;
 };
 
+const isEven = (num) => {
+  return (num % 2 === 0);
+}
+
 const checParity = (userName, numWin = 1) => {
   let numWinGames = numWin;
-  const numGenerate = generateNum();
+  const questionNumber = generateNum();
   const userAnswer = questionGenerate(numGenerate);
-  const rightAnswer = (numGenerate % 2 === 0) ? 'yes' : 'no';
+  console.log();
+  const rightAnswer = (isEven(questionNumber)) ? 'yes' : 'no';
   if (numWinGames === 3) {
     return `Congratulations, ${userName}!`;
   }
