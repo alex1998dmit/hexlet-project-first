@@ -12,3 +12,6 @@
 
 ## How to play brain-gcd
 [![asciicast](https://asciinema.org/a/ygpU1Xp8Qxm8zcIOrREp3qXOM.png)](https://asciinema.org/a/ygpU1Xp8Qxm8zcIOrREp3qXOM)
+
+## How to play brain-progression
+[![asciicast](https://asciinema.org/a/lLjyS2V87W4yRwRGVw7Vl9UVz.png)](https://asciinema.org/a/lLjyS2V87W4yRwRGVw7Vl9UVz)
