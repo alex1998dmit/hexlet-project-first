@@ -110,18 +110,3 @@ export const startBrainGame = () => {
   showWelcomeSign();
   sayHiToUser();
 };
-
-export const checParity = () => {
-  showRulesOfEvenGame();
-  return startGame(generateEvenNumber);
-};
-
-export const checkCalc = () => {
-  showRulesOfCalcGame();
-  return startGame(generateExpress);
-};
-
-export const startNodGame = () => {
-  showNodRules();
-  return startGame(findNod);
-};

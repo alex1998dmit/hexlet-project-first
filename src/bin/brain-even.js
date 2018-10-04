@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { checParity } from '..';
+import checParity from '../games/even-game';
 
 console.log(checParity());
