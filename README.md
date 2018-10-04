@@ -11,4 +11,4 @@
 [![asciicast](https://asciinema.org/a/3JKCkAMbnQ5qHjxE6NiWXx4ax.png)](https://asciinema.org/a/3JKCkAMbnQ5qHjxE6NiWXx4ax)
 
 ## How to play brain-gcd
-[![asciicast](https://asciinema.org/a/lFVyQPNfCEoD0FldU1FdErlGq.png)](https://asciinema.org/a/lFVyQPNfCEoD0FldU1FdErlGq)
+[![asciicast](https://asciinema.org/a/ygpU1Xp8Qxm8zcIOrREp3qXOM.png)](https://asciinema.org/a/ygpU1Xp8Qxm8zcIOrREp3qXOM)
