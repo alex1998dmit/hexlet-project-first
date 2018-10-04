@@ -32,7 +32,10 @@ export const showNodRules = () => {
 
 export const generateRandomNum = (min, max) => Math.round(min + Math.random() * (max - min));
 
-export const isEven = num => (num % 2 === 0) ? 'yes' : 'no';
+export const isEven = (num) => {
+  const res = num % 2 === 0 ? 'yes' : 'no';
+  return res;
+};
 
 export const addNum = (numOne, numTwo) => numOne + numTwo;
 
@@ -40,11 +43,11 @@ export const difNum = (numOne, numTwo) => numOne - numTwo;
 
 export const divNum = (numOne, numTwo) => numOne / numTwo;
 
-export const generateEvenNumber = () => { 
-  const num  = generateRandomNum(3, 10); 
+export const generateEvenNumber = () => {
+  const num = generateRandomNum(3, 10);
   console.log(`Question, ${num}`);
   return isEven(num);
-}
+};
 
 export const generateExpress = () => {
   const min = 0;
@@ -91,17 +94,17 @@ export const startGame = (generateFunc) => {
   const iter = (numWin = 0) => {
     if (numWin === triesToWin) {
       return `Congratulations, ${userName}!`;
-    }    
-    let rightAnswer = generateFunc();
+    }
+    const rightAnswer = generateFunc();
     const userAnswer = readlineSync.question('Your answer: ');
-    if (String(rightAnswer) === String(userAnswer)){
+    if (String(rightAnswer) === String(userAnswer)) {
       console.log('Correct!');
       return iter(numWin + 1);
     }
     return `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
   };
   return iter();
-}
+};
 
 export const startBrainGame = () => {
   showWelcomeSign();
