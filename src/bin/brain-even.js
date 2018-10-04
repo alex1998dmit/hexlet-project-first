@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { checParity } from '../..';
+import { checParity } from '..';
 
 console.log(checParity());

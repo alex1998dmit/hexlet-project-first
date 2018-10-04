@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { checkCalc } from '../..';
+import { checkCalc } from '..';
 
 console.log(checkCalc());
