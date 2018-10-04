@@ -1,10 +1,5 @@
-import { ShowSign, startGame, generateRandomNum } from '..';
-
-const addNum = (numOne, numTwo) => numOne + numTwo;
-
-const difNum = (numOne, numTwo) => numOne - numTwo;
-
-const divNum = (numOne, numTwo) => numOne / numTwo;
+import { ShowSign, startGame } from '..';
+import { generateRandomNum, addNum, divNum, difNum } from '../mathFuncs';
 
 const generateExpress = () => {
   const min = 0;

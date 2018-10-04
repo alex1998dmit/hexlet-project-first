@@ -1,4 +1,5 @@
-import { ShowSign, startGame, generateRandomNum } from '..';
+import { ShowSign, startGame } from '..';
+import { generateRandomNum } from '../mathFuncs';
 
 const generateProgression = () => {
   const numEmpty = generateRandomNum(0, 9);

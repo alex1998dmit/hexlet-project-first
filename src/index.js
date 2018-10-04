@@ -19,7 +19,6 @@ export const ShowSign = (str) => {
   console.log();
 };
 
-export const generateRandomNum = (min, max) => Math.round(min + Math.random() * (max - min));
 
 export const entryUserName = (sign) => {
   const userName = readlineSync.question(sign);
