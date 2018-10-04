@@ -1,5 +1,5 @@
 import { ShowSign, startGame } from '..';
-import { generateRandomNum } from '../mathFuncs';
+import generateRandomNum from '../mathFuncs';
 
 const isEven = (num) => {
   const res = num % 2 === 0 ? 'yes' : 'no';

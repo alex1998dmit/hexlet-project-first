@@ -1,5 +1,5 @@
 import { ShowSign, startGame } from '..';
-import { generateRandomNum } from '../mathFuncs';
+import generateRandomNum from '../mathFuncs';
 
 const findNod = () => {
   const numOne = generateRandomNum(1, 20);
