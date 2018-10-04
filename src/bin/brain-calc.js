@@ -2,4 +2,4 @@
 
 import checkCalc from '../games/calc-game';
 
-console.log(checkCalc());
+checkCalc();

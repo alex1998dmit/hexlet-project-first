@@ -2,4 +2,4 @@
 
 import checParity from '../games/even-game';
 
-console.log(checParity());
+checParity();
