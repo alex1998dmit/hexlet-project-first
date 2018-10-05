@@ -9,13 +9,12 @@ const nodPair = () => {
   const numTwo = generateRandomNum(1, 20);
   const question = `${numOne}   ${numTwo}`;
   const min = (numOne < numTwo) ? numOne : numTwo;
-  let result;
-  for (let i = 1; i <= min; i += 1) {
+  for (let i = min; i > 1; i -= 1) {
     if (numOne % i === 0 && numTwo % i === 0) {
-      result = i;
+      return cons(question, i);
     }
   }
-  return cons(question, result);
+  return cons(question, 1);
 };
 
 export default () => startGame(gameDesc, nodPair);

@@ -9,21 +9,21 @@ const evenCalc = () => {
   const numTwo = generateRandomNum(1, 2);
   const chosenOperation = generateRandomNum(0, 2);
   let question;
-  let result;
+  let rightAnswer;
   switch (chosenOperation) {
     case 0:
       question = `${numOne} + ${numTwo}`;
-      result = numOne + numTwo;
+      rightAnswer = numOne + numTwo;
       break;
     case 1:
       question = `${numOne} - ${numTwo}`;
-      result = numOne - numTwo;
+      rightAnswer = numOne - numTwo;
       break;
     default:
       question = `${numOne} * ${numTwo}`;
-      result = numOne * numTwo;
+      rightAnswer = numOne * numTwo;
   }
-  return cons(question, result);
+  return cons(question, rightAnswer);
 };
 
 export default () => startGame(gameDesc, evenCalc);

@@ -15,8 +15,8 @@ const primePair = () => {
     }
     return iter(numIter - 1);
   };
-  const result = iter(question - 1) ? 'yes' : 'no';
-  return cons(question, result);
+  const rightAnswer = iter(question - 1) ? 'yes' : 'no';
+  return cons(question, rightAnswer);
 };
 
 export default () => startGame(gameDesc, primePair);
