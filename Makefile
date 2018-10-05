@@ -21,4 +21,8 @@ test-even:
 test-gcd:
 	npm run build
 	chmod 777 dist/bin/brain-gcd.js
-	dist/bin/brain-gcd.js		
+	dist/bin/brain-gcd.js	
+test-prime:
+	npm run build
+	chmod 777 dist/bin/brain-prime.js
+	dist/bin/brain-prime.js			
