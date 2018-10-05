@@ -1,42 +1,37 @@
-import { startGame, showQuestion } from '..';
+import { cons } from 'hexlet-pairs';
+import { startGame } from '..';
 import generateRandomNum from '../mathFuncs';
+
+const gameDesc = 'What number is missing in this progression?';
 
 const generateProgression = () => {
   const numEmpty = generateRandomNum(0, 9);
   const progStart = generateRandomNum(0, 10);
   const progDiff = generateRandomNum(1, 5);
-  const numbersOfProg = 10;
+  const countProgress = 10;
 
-  const iter = (numIter, progrNumber) => {
+  const findNumProgr = (progrNumber, numIter = 0) => {
     if (numIter === numEmpty) {
       return progrNumber;
     }
     const nextNumber = progrNumber + progDiff;
     const newIter = numIter + 1;
-    return iter(newIter, nextNumber);
+    return findNumProgr(nextNumber, newIter);
   };
 
-  const generateStr = (numIter, progrNumber, str = '') => {
-    if (numIter === numbersOfProg) {
+  const generateStr = (progrNumber, str = '', numIter = 0) => {
+    if (numIter === countProgress) {
       return str;
     }
-    if (numIter === numEmpty) {
-      const newIter = numIter + 1;
-      const newStr = `${str} ...`;
-      const nextNumber = progrNumber + progDiff;
-      return generateStr(newIter, nextNumber, newStr);
-    }
     const newIter = numIter + 1;
-    const newStr = `${str} ${progrNumber} `;
+    const newStr = numIter === numEmpty ? `${str} ...` : `${str} ${progrNumber} `;
     const nextNumber = progrNumber + progDiff;
-    return generateStr(newIter, nextNumber, newStr);
+    return generateStr(nextNumber, newStr, newIter);
   };
-  const exprStr = `Question: ${generateStr(0, progStart)}`;
-  showQuestion(exprStr);
-  return iter(0, progStart);
+
+  const question = `${generateStr(progStart)}`;
+  const rightAnswer = findNumProgr(progStart);
+  return cons(question, rightAnswer);
 };
 
-export default () => {
-  const str = 'What number is missing in this progression?';
-  return startGame(generateProgression, str);
-};
+export default () => startGame(gameDesc, generateProgression);

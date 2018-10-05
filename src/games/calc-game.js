@@ -1,32 +1,29 @@
+import { cons } from 'hexlet-pairs';
 import generateRandomNum from '../mathFuncs';
-import { startGame, showQuestion } from '..';
+import { startGame } from '..';
+
+const gameDesc = 'What is the result of the expression?';
 
 const generateExpress = () => {
-  const min = 0;
-  const max = 2;
   const numOne = generateRandomNum(3, 10);
   const numTwo = generateRandomNum(1, 2);
-  const numExpr = Math.round(min + Math.random() * (max - min));
+  const chosenOperation = generateRandomNum(0, 2);
   let exprStr;
   let result;
-  switch (numExpr) {
+  switch (chosenOperation) {
     case 0:
-      exprStr = `Question, ${numOne} + ${numTwo}`;
+      exprStr = `${numOne} + ${numTwo}`;
       result = numOne + numTwo;
       break;
     case 1:
-      exprStr = `Question, ${numOne} - ${numTwo}`;
+      exprStr = `${numOne} - ${numTwo}`;
       result = numOne - numTwo;
       break;
     default:
-      exprStr = `Question, ${numOne} * ${numTwo}`;
+      exprStr = `${numOne} * ${numTwo}`;
       result = numOne * numTwo;
   }
-  showQuestion(exprStr);
-  return result;
+  return cons(exprStr, result);
 };
 
-export default () => {
-  const str = 'What is the result of the expression?';
-  return startGame(generateExpress, str);
-};
+export default () => startGame(gameDesc, generateExpress);

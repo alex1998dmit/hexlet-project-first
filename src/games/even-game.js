@@ -1,19 +1,15 @@
-import { startGame, showQuestion } from '..';
+import { startGame } from '..';
 import generateRandomNum from '../mathFuncs';
+import { cons } from 'hexlet-pairs';
 
-const isEven = (num) => {
-  const res = num % 2 === 0 ? 'yes' : 'no';
-  return res;
+const gameDesc = 'Answer "yes" if number even otherwise answer "no".';
+
+const isEven = num => num % 2 === 0;
+
+const evenPair = () => {
+  const question = generateRandomNum(1, 10);
+  const rightAnswer = isEven(question) ? 'yes' : 'no';
+  return cons(question, rightAnswer);
 };
 
-const generateEvenNumber = () => {
-  const num = generateRandomNum(3, 10);
-  const exprStr = `Question: ${num}`;
-  showQuestion(exprStr);
-  return isEven(num);
-};
-
-export default () => {
-  const str = 'Answer "yes" if number even otherwise answer "no".';
-  return startGame(generateEvenNumber, str);
-};
+export default () => startGame(gameDesc, evenPair);
