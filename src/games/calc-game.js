@@ -1,11 +1,5 @@
 import generateRandomNum from '../mathFuncs';
-import { ShowSign, startGame } from '..';
-
-const addNum = (numOne, numTwo) => numOne + numTwo;
-
-const difNum = (numOne, numTwo) => numOne - numTwo;
-
-const divNum = (numOne, numTwo) => numOne / numTwo;
+import { startGame, showQuestion } from '..';
 
 const generateExpress = () => {
   const min = 0;
@@ -13,22 +7,26 @@ const generateExpress = () => {
   const numOne = generateRandomNum(3, 10);
   const numTwo = generateRandomNum(1, 2);
   const numExpr = Math.round(min + Math.random() * (max - min));
+  let exprStr;
   let result;
-  if (numExpr === 0) {
-    console.log(`Question, ${numOne} + ${numTwo}`);
-    result = addNum(numOne, numTwo);
-  } else if (numExpr === 1) {
-    console.log(`Question, ${numOne} - ${numTwo}`);
-    result = difNum(numOne, numTwo);
-  } else {
-    console.log(`Question, ${numOne} / ${numTwo}`);
-    result = divNum(numOne, numTwo);
+  switch (numExpr) {
+    case 0:
+      exprStr = `Question, ${numOne} + ${numTwo}`;
+      result = numOne + numTwo;
+      break;
+    case 1:
+      exprStr = `Question, ${numOne} - ${numTwo}`;
+      result = numOne - numTwo;
+      break;
+    default:
+      exprStr = `Question, ${numOne} * ${numTwo}`;
+      result = numOne * numTwo;
   }
+  showQuestion(exprStr);
   return result;
 };
 
 export default () => {
-  ShowSign('What is the result of the expression?');
-  console.log('');
-  return startGame(generateExpress);
+  const str = 'What is the result of the expression?';
+  return startGame(generateExpress, str);
 };

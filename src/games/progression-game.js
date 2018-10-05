@@ -1,4 +1,4 @@
-import { ShowSign, startGame } from '..';
+import { startGame, showQuestion } from '..';
 import generateRandomNum from '../mathFuncs';
 
 const generateProgression = () => {
@@ -31,11 +31,12 @@ const generateProgression = () => {
     const nextNumber = progrNumber + progDiff;
     return generateStr(newIter, nextNumber, newStr);
   };
-  console.log(`Question: ${generateStr(0, progStart)}`);
+  const exprStr = `Question: ${generateStr(0, progStart)}`;
+  showQuestion(exprStr);
   return iter(0, progStart);
 };
 
 export default () => {
-  ShowSign('What number is missing in this progression?');
-  return startGame(generateProgression);
+  const str = 'What number is missing in this progression?';
+  return startGame(generateProgression, str);
 };

@@ -1,4 +1,4 @@
-import { ShowSign, startGame } from '..';
+import { startGame, showQuestion } from '..';
 import generateRandomNum from '../mathFuncs';
 
 const isEven = (num) => {
@@ -8,11 +8,12 @@ const isEven = (num) => {
 
 const generateEvenNumber = () => {
   const num = generateRandomNum(3, 10);
-  console.log(`Question: ${num}`);
+  const exprStr = `Question: ${num}`;
+  showQuestion(exprStr);
   return isEven(num);
 };
 
 export default () => {
-  ShowSign('Answer "yes" if number even otherwise answer "no".');
-  return startGame(generateEvenNumber);
+  const str = 'Answer "yes" if number even otherwise answer "no".';
+  return startGame(generateEvenNumber, str);
 };

@@ -2,6 +2,13 @@ import readlineSync from 'readline-sync';
 
 const triesToWin = 3;
 
+const welcomeSign = 'Welcome to the Brain Games! ';
+
+export const showWelcomeSign = () => {
+  console.log(welcomeSign);
+  console.log();
+};
+
 export const sayHiToUser = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -9,24 +16,19 @@ export const sayHiToUser = () => {
   return userName;
 };
 
-export const showWelcomeSign = () => {
-  console.log('Welcome to the Brain Games! ');
-};
-
-export const ShowSign = (str) => {
-  showWelcomeSign();
-  console.log(str);
-  console.log();
-};
-
-
 export const entryUserName = (sign) => {
   const userName = readlineSync.question(sign);
   console.log();
   return userName;
 };
 
-export const startGame = (generateFunc) => {
+export const showQuestion = (str) => {
+  console.log(str);
+};
+
+export const startGame = (generateFunc, str) => {
+  console.log(welcomeSign);
+  console.log(str);
   const userName = entryUserName('May I have your name?  ');
   const iter = (numWin = 0) => {
     if (numWin === triesToWin) {
