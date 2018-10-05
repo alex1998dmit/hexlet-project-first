@@ -10,7 +10,7 @@ const primePair = () => {
     if (numIter === 1) {
       return true;
     }
-    if (question % numIter === 0) {
+    if (question % numIter === 0 || question < 2) {
       return false;
     }
     return iter(numIter - 1);
