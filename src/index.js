@@ -1,5 +1,5 @@
-import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
+import readlineSync from 'readline-sync';
 
 const triesToWin = 3;
 
@@ -17,14 +17,10 @@ export const sayHiToUser = () => {
   return userName;
 };
 
-export const entryUserName = (sign) => {
+const entryUserName = (sign) => {
   const userName = readlineSync.question(sign);
   console.log();
   return userName;
-};
-
-export const showQuestion = (str) => {
-  console.log(str);
 };
 
 export const startGame = (gameDesc, gameFunc) => {
@@ -39,8 +35,8 @@ export const startGame = (gameDesc, gameFunc) => {
     const pair = gameFunc();
     const question = car(pair);
     const rightAnswer = cdr(pair);
-    console.log(`Question: ${question}`);
-    const userAnswer = readlineSync.question('Your answer: ');
+    console.log();
+    const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
     if (String(rightAnswer) === String(userAnswer)) {
       console.log('Correct!');
       return iter(numWin + 1);
