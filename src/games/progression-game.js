@@ -4,14 +4,14 @@ import generateRandomNum from '../mathFuncs';
 
 const gameDesc = 'What number is missing in this progression?';
 
-const generateProgression = () => {
-  const numEmpty = generateRandomNum(0, 9);
+const progressionPair = () => {
+  const indexEmpty = generateRandomNum(0, 9);
   const progStart = generateRandomNum(0, 10);
   const progDiff = generateRandomNum(1, 5);
   const countProgress = 10;
 
   const findNumProgr = (progrNumber, numIter = 0) => {
-    if (numIter === numEmpty) {
+    if (numIter === indexEmpty) {
       return progrNumber;
     }
     const nextNumber = progrNumber + progDiff;
@@ -24,7 +24,7 @@ const generateProgression = () => {
       return str;
     }
     const newIter = numIter + 1;
-    const newStr = numIter === numEmpty ? `${str} ...` : `${str} ${progrNumber} `;
+    const newStr = numIter === indexEmpty ? `${str} ...` : `${str} ${progrNumber} `;
     const nextNumber = progrNumber + progDiff;
     return generateStr(nextNumber, newStr, newIter);
   };
@@ -34,4 +34,4 @@ const generateProgression = () => {
   return cons(question, rightAnswer);
 };
 
-export default () => startGame(gameDesc, generateProgression);
+export default () => startGame(gameDesc, progressionPair);

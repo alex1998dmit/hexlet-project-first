@@ -4,7 +4,7 @@ import generateRandomNum from '../mathFuncs';
 
 const gameDesc = 'Answer "yes" if given number is prime. Otherwise answer "no". ';
 
-const generaPrime = () => {
+const primePair = () => {
   const question = generateRandomNum(2, 30);
   const iter = (numIter) => {
     if (numIter === 1) {
@@ -19,4 +19,4 @@ const generaPrime = () => {
   return cons(question, result);
 };
 
-export default () => startGame(gameDesc, generaPrime);
+export default () => startGame(gameDesc, primePair);
