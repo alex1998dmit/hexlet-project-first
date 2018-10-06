@@ -4,23 +4,23 @@ publish:
 	npm publish
 lint:
 	npx eslint ./
-test-prog:
+start-prog:
 	npm run build
 	chmod 777 dist/bin/brain-progression.js
 	dist/bin/brain-progression.js
-test-calc:
+start-calc:
 	npm run build
 	chmod 777 dist/bin/brain-calc.js
 	dist/bin/brain-calc.js
-test-even:
+start-even:
 	npm run build
 	chmod 777 dist/bin/brain-even.js
 	dist/bin/brain-even.js		
-test-gcd:
+start-gcd:
 	npm run build
 	chmod 777 dist/bin/brain-gcd.js
 	dist/bin/brain-gcd.js	
-test-prime:
+start-prime:
 	npm run build
 	chmod 777 dist/bin/brain-prime.js
 	dist/bin/brain-prime.js			
