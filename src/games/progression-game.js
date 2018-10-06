@@ -1,28 +1,28 @@
 import { cons } from 'hexlet-pairs';
-import { startGame } from '..';
-import generateRandomNum from '../mathFuncs';
+import startGame from '..';
+import generateRandomNum from '../utils';
 
 const gameDesc = 'What number is missing in this progression?';
 
-const progressionPair = () => {
+const findProgressPair = () => {
   const progEmpty = generateRandomNum(1, 9);
   const progStart = generateRandomNum(1, 10);
   const progDiff = generateRandomNum(1, 5);
   const countProgressElemnts = 10;
 
-  const generateStr = (progrNumber, str = '', numIter = 1) => {
+  const generateProgStr = (numIter, progrNumber, progStr) => {
     if (numIter > countProgressElemnts) {
-      return str;
+      return progStr;
     }
     const newIter = numIter + 1;
-    const newStr = numIter === progEmpty ? `${str} ...` : `${str} ${progrNumber} `;
+    const newProgStr = numIter === progEmpty ? `${progStr}...` : `${progStr} ${progrNumber} `;
     const nextNumber = progrNumber + progDiff;
-    return generateStr(nextNumber, newStr, newIter);
+    return generateProgStr(newIter, nextNumber, newProgStr);
   };
 
-  const question = `${generateStr(progStart)}`;
+  const question = `${generateProgStr(1, progStart, '')}`;
   const rightAnswer = progStart + (progEmpty - 1) * progDiff;
-  return cons(question, rightAnswer);
+  return cons(question, String(rightAnswer));
 };
 
-export default () => startGame(gameDesc, progressionPair);
+export default () => startGame(gameDesc, findProgressPair);

@@ -1,22 +1,23 @@
 import { cons } from 'hexlet-pairs';
-import { startGame } from '..';
-import generateRandomNum from '../mathFuncs';
+import startGame from '..';
+import generateRandomNum from '../utils';
 
 const gameDesc = 'Answer "yes" if given number is prime. Otherwise answer "no". ';
 
-const primePair = () => {
+const isPrime = (divider, num) => {
+  if (divider === 1) {
+    return true;
+  }
+  if (num % divider === 0 || divider < 2) {
+    return false;
+  }
+  return isPrime(divider - 1, num);
+};
+
+const findPrimePair = () => {
   const question = generateRandomNum(2, 30);
-  const iter = (numIter) => {
-    if (numIter === 1) {
-      return true;
-    }
-    if (question % numIter === 0 || question < 2) {
-      return false;
-    }
-    return iter(numIter - 1);
-  };
-  const rightAnswer = iter(question - 1) ? 'yes' : 'no';
+  const rightAnswer = isPrime(question - 1, question) ? 'yes' : 'no';
   return cons(question, rightAnswer);
 };
 
-export default () => startGame(gameDesc, primePair);
+export default () => startGame(gameDesc, findPrimePair);

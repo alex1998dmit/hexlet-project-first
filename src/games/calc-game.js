@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
-import generateRandomNum from '../mathFuncs';
-import { startGame } from '..';
+import generateRandomNum from '../utils';
+import startGame from '..';
 
 const gameDesc = 'What is the result of the expression?';
 
@@ -23,7 +23,7 @@ const evenCalc = () => {
       question = `${numOne} * ${numTwo}`;
       rightAnswer = numOne * numTwo;
   }
-  return cons(question, rightAnswer);
+  return cons(question, String(rightAnswer));
 };
 
 export default () => startGame(gameDesc, evenCalc);

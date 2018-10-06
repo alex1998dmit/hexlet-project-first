@@ -5,39 +5,28 @@ const triesToWin = 3;
 
 const welcomeSign = 'Welcome to the Brain Games! ';
 
-export const showWelcomeSign = () => {
-  console.log(welcomeSign);
-  console.log();
-};
-
-export const sayHiToUser = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log();
-  return userName;
-};
-
 const entryUserName = (sign) => {
   const userName = readlineSync.question(sign);
   console.log();
   return userName;
 };
 
-export const startGame = (gameDesc, gameFunc) => {
+export default (gameDesc, gameFunc) => {
   console.log(welcomeSign);
   console.log(gameDesc);
   console.log();
   const userName = entryUserName('May I have your name?  ');
   const iter = (numWin = 0) => {
     if (numWin === triesToWin) {
-      return true;
+      return `Congratulations, ${userName}!`;
     }
     const pair = gameFunc();
     const question = car(pair);
     const rightAnswer = cdr(pair);
-    console.log();
+    console.log(typeof question);
+    console.log(typeof rightAnswer);
     const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
-    if (String(rightAnswer) === String(userAnswer)) {
+    if (rightAnswer === userAnswer) {
       console.log('Correct!');
       return iter(numWin + 1);
     }
@@ -45,9 +34,5 @@ export const startGame = (gameDesc, gameFunc) => {
     return strFail;
   };
   const result = iter();
-  if (result === true) {
-    console.log(`Congratulations, ${userName}!`);
-  } else {
-    console.log(result);
-  }
+  console.log(result);
 };
