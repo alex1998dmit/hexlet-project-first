@@ -28,8 +28,7 @@ export default (gameDesc, gameFunc) => {
       console.log('Correct!');
       return iter(numWin + 1);
     }
-    const strFail = `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
-    return strFail;
+    return `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
   };
   const result = iter();
   console.log(result);
