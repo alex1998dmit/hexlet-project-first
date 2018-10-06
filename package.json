@@ -7,7 +7,7 @@
     "brain-prime": "dist/bin/brain-prime.js"
   },
   "name": "brain-games-dmitr",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "first project on Hexlet",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
