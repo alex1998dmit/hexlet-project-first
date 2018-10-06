@@ -1,7 +1,7 @@
 import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
-const triesToWin = 3;
+const roundToWin = 3;
 
 const welcomeSign = 'Welcome to the Brain Games! ';
 
@@ -17,7 +17,7 @@ export default (gameDesc, gameFunc) => {
   console.log();
   const userName = entryUserName('May I have your name?  ');
   const iter = (numWin) => {
-    if (numWin === triesToWin) {
+    if (numWin === roundToWin) {
       return `Congratulations, ${userName}!`;
     }
     const pair = gameFunc();
@@ -30,6 +30,5 @@ export default (gameDesc, gameFunc) => {
     }
     return `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
   };
-  const result = iter(0);
-  console.log(result);
+  console.log(iter(0));
 };

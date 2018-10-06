@@ -4,13 +4,13 @@ import startGame from '..';
 
 const gameDesc = 'What is the result of the expression?';
 
-const evenCalc = () => {
+const findCalcPair = () => {
   const numOne = generateRandomNum(3, 10);
   const numTwo = generateRandomNum(1, 2);
-  const chosenOperation = generateRandomNum(0, 2);
+  const operation = generateRandomNum(0, 2);
   let question;
   let rightAnswer;
-  switch (chosenOperation) {
+  switch (operation) {
     case 0:
       question = `${numOne} + ${numTwo}`;
       rightAnswer = numOne + numTwo;
@@ -26,4 +26,4 @@ const evenCalc = () => {
   return cons(question, String(rightAnswer));
 };
 
-export default () => startGame(gameDesc, evenCalc);
+export default () => startGame(gameDesc, findCalcPair);
