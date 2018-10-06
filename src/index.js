@@ -23,8 +23,6 @@ export default (gameDesc, gameFunc) => {
     const pair = gameFunc();
     const question = car(pair);
     const rightAnswer = cdr(pair);
-    console.log(typeof question);
-    console.log(typeof rightAnswer);
     const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
     if (rightAnswer === userAnswer) {
       console.log('Correct!');
