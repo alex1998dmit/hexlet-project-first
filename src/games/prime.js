@@ -6,7 +6,7 @@ const gameDesc = 'Answer "yes" if given number is prime. Otherwise answer "no". 
 
 const isPrime = (num) => {
   const iter = (divider) => {
-    if (divider > num / 2 || divider < 2) {
+    if (divider < 2 || divider > num / 2) {
       return true;
     }
     if (num % divider === 0) {

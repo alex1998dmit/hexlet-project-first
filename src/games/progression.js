@@ -5,7 +5,7 @@ import generateRandomNum from '../utils';
 const gameDesc = 'What number is missing in this progression?';
 const length = 10;
 
-const findProgressPair = () => {
+const findProgressionPair = () => {
   const asnwerPos = generateRandomNum(1, length - 1);
   const start = generateRandomNum(1, 10);
   const diff = generateRandomNum(1, 5);
@@ -18,4 +18,4 @@ const findProgressPair = () => {
   return cons(question, String(rightAnswer));
 };
 
-export default () => startGame(gameDesc, findProgressPair);
+export default () => startGame(gameDesc, findProgressionPair);
