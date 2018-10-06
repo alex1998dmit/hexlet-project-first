@@ -16,7 +16,7 @@ export default (gameDesc, gameFunc) => {
   console.log(gameDesc);
   console.log();
   const userName = entryUserName('May I have your name?  ');
-  const iter = (numWin = 0) => {
+  const iter = (numWin) => {
     if (numWin === triesToWin) {
       return `Congratulations, ${userName}!`;
     }
@@ -30,6 +30,6 @@ export default (gameDesc, gameFunc) => {
     }
     return `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. Let's try again, ${userName}!`;
   };
-  const result = iter();
+  const result = iter(0);
   console.log(result);
 };
