@@ -5,6 +5,7 @@ import generateRandomNum from '../utils';
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no". ';
 
 const isPrime = (num) => {
+  const firstDivider = 2;
   const iter = (divider) => {
     if (divider === num || divider > num / 2) {
       return true;
@@ -14,7 +15,7 @@ const isPrime = (num) => {
     }
     return iter(divider + 1);
   };
-  return iter(2);
+  return iter(firstDivider);
 };
 
 const findPrimePair = () => {
