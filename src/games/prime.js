@@ -6,7 +6,7 @@ const description = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 const isPrime = (num) => {
   const iter = (divider) => {
-    if (divider === 1 || divider > num / 2) {
+    if (divider === num || divider > num / 2) {
       return true;
     }
     if (num % divider === 0) {
