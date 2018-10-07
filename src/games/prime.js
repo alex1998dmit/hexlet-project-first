@@ -5,17 +5,23 @@ import generateRandomNum from '../utils';
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no". ';
 
 const isPrime = (num) => {
-  const firstDivider = 2;
+  const firstDivide = 2;
+  if (num < firstDivide) {
+    return false;
+  }
+  if (num === firstDivide) {
+    return true;
+  }
   const iter = (divider) => {
-    if (divider === num || divider > num / 2) {
-      return true;
-    }
     if (num % divider === 0) {
       return false;
     }
+    if (divider > num / 2) {
+      return true;
+    }
     return iter(divider + 1);
   };
-  return iter(firstDivider);
+  return iter(firstDivide);
 };
 
 const findPrimePair = () => {
