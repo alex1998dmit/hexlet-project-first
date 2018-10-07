@@ -11,9 +11,9 @@ const entryUserName = (sign) => {
   return userName;
 };
 
-export default (gameDesc, gameFunc) => {
+export default (description, gameFunc) => {
   console.log(welcomeSign);
-  console.log(gameDesc);
+  console.log(description);
   console.log();
   const userName = entryUserName('May I have your name?  ');
   const iter = (numWin) => {

@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import startGame from '..';
 import generateRandomNum from '../utils';
 
-const gameDesc = 'What number is missing in this progression?';
+const description = 'What number is missing in this progression?';
 const length = 10;
 
 const findProgressionPair = () => {
@@ -18,4 +18,4 @@ const findProgressionPair = () => {
   return cons(question, String(rightAnswer));
 };
 
-export default () => startGame(gameDesc, findProgressionPair);
+export default () => startGame(description, findProgressionPair);

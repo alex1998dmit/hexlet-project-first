@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import generateRandomNum from '../utils';
 import startGame from '..';
 
-const gameDesc = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const findCalcPair = () => {
   const numOne = generateRandomNum(3, 10);
@@ -26,4 +26,4 @@ const findCalcPair = () => {
   return cons(question, String(rightAnswer));
 };
 
-export default () => startGame(gameDesc, findCalcPair);
+export default () => startGame(description, findCalcPair);
